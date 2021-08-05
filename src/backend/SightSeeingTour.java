@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package backend;
 
 /**
@@ -12,6 +8,7 @@ package backend;
  * Dept: School of Computing (OOP Coursework)
  * Version 1.0   
  */
+
 public class SightSeeingTour extends TourPackage{
     //Object level attributes for the sightSeeingTour class
     private double ticketCost;
