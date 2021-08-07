@@ -32,12 +32,23 @@ public class ProjectReflectAPI {
         for (String expectedClass : packageClass) {
             System.out.println("Name of Class: \n\t " + expectedClass);
         }
-        String classes = Arrays.toString( getClasses("backend"));
-        System.out.println("\nActual number of classes in Backend package: ");
-        System.out.println("Name of Class: \n\t " +  classes);
+        
+        String classes = Arrays.toString(getClasses("backend"));
+        
+        String[] strSplit = classes.split(" ");
+        ArrayList<String> strList = new ArrayList<String>(
+            Arrays.asList(strSplit));
+         System.out.println("\nActual number of classes in Backend package: ");
+        for (String s : strList)
+            System.out.println("Name of Class: \n\t" + s);
+       
+        //System.out.println("Name of Class: \n\t " +  classes.substring(1, classes.length() -1));
+        
+        
 
         
     }
+    
     
     private static Class[] getClasses(String packageName) throws ClassNotFoundException, IOException {
     
@@ -67,9 +78,12 @@ public class ProjectReflectAPI {
         if (file.isDirectory()) {
             assert !file.getName().contains(".");
             classes.addAll(findClasses(file, packageName + "." + file.getName()));
+         
+
         } else if (file.getName().endsWith(".class")) {
             classes.add(Class.forName(packageName + '.' + file.getName().substring(0, file.getName().length() - 6)));
-           
+               
+
         }
         
     }
